@@ -1,0 +1,49 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-949f749dfbde4943e07c0194e612601915b36d2e",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "compilerType": "solc",
+  "toolVersions": {
+    "hardhat": "3.9.0"
+  },
+  "userSourceNameMap": {
+    "contracts/AccessControl.sol": "project/contracts/AccessControl.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "cancun",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode.linkReferences",
+            "evm.bytecode.object",
+            "evm.bytecode.opcodes",
+            "evm.bytecode.sourceMap",
+            "evm.deployedBytecode.immutableReferences",
+            "evm.deployedBytecode.linkReferences",
+            "evm.deployedBytecode.object",
+            "evm.deployedBytecode.opcodes",
+            "evm.deployedBytecode.sourceMap",
+            "evm.methodIdentifiers"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/AccessControl.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract AccessControl {\n    address public admin;\n    mapping(address => bool) public authorized;\n\n    event AccessGranted(address indexed account);\n    event AccessRevoked(address indexed account);\n\n    constructor() {\n        admin = msg.sender; // el que despliega es admin\n    }\n\n    modifier onlyAdmin() {\n        require(msg.sender == admin, \"Solo el admin puede ejecutar\");\n        _;\n    }\n\n    function grantAccess(address account) external onlyAdmin {\n        authorized[account] = true;\n        emit AccessGranted(account);\n    }\n\n    function revokeAccess(address account) external onlyAdmin {\n        authorized[account] = false;\n        emit AccessRevoked(account);\n    }\n\n    function hasAccess(address account) external view returns (bool) {\n        return authorized[account];\n    }\n}\n"
+      }
+    }
+  }
+}
