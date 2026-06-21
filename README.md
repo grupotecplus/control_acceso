@@ -56,7 +56,8 @@ contract-tools: contenedor con Hardhat para compilar y desplegar contratos.
 postgres: base de datos PostgreSQL.
 api-accesos: API FastAPI con Swagger en el puerto 8001.
 
-📂 Estructura del Proyecto
+## 📂 Estructura del Proyecto
+
 
 control_acceso/
   README.md
@@ -79,7 +80,8 @@ control_acceso/
     Dockerfile
 
 
-📋 Requisitos
+## 📋 Requisitos
+
 Instalar previamente:
 Docker Desktop
 Node.js 22 o superior (para probar Hardhat localmente)
@@ -92,8 +94,7 @@ docker compose version
 node --version
 npm --version
 
-
-🔑 Variables de Entorno (.env)
+## 🔑 Variables de entorno
 
 GANACHE_RPC_URL=http://hardhat-node:8545
 GANACHE_PRIVATE_KEY=0x4f3edf983ac636a65a842ce7c78d9aa706d3b113bce9c46f30d7d21715b23b1d
@@ -110,8 +111,7 @@ Ejemplo:
 Contrato desplegado correctamente
 Dirección del contrato: 0x5FbDB2315678afecb367f032d93F642f64180aa3
 
-
-📜 Contrato AccessControl (Solidity)
+## 📜 Contrato AccessControl (Solidity)
 
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
@@ -148,8 +148,7 @@ contract AccessControl {
 }
 
 
-
-🚀 Pasos de Ejecución
+## 🚀 Pasos de Ejecución
 
 1. Compilar y probar contrato con Hardhat
 
@@ -191,15 +190,15 @@ Ejemplo de body para POST /accesos:
   "documento": "Orden de trabajo #123"
 }
 
-
-📊 Resultados Obtenidos
+## 📊 Resultados Obtenidos
 
 Hardhat: compiló y probó el contrato en una red temporal.
 Ganache: desplegó el contrato y mantuvo el estado de la blockchain local.
 FastAPI + PostgreSQL: almacenaron los datos completos de accesos y expusieron endpoints REST.
 Swagger: verificó el flujo completo (crear acceso, consultar, verificar contra blockchain).
 
-✅ Resumen
+## ✅ Resumen
+
 Este proyecto integra blockchain y bases de datos tradicionales para resolver un problema real de control de accesos:
 PostgreSQL almacena los datos completos.
 Blockchain garantiza evidencia inmutable.
@@ -207,7 +206,7 @@ FastAPI expone endpoints claros y probados con Swagger.
 Docker Compose facilita la orquestación de todos los servicios.
 Hardhat y Ganache se usaron como guía didáctica para comprender cómo se compilan, despliegan y verifican contratos inteligentes.
 
-🎯 Conclusión
+## 🎯 Conclusión
 La práctica demuestra cómo combinar tecnologías modernas para resolver un problema de seguridad y auditoría en accesos.
 Se logra un sistema confiable, replicable y fácil de probar.
 La separación de responsabilidades evita exponer datos sensibles en blockchain.
