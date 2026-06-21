@@ -47,8 +47,10 @@ Contrato AccessControl
       v
 Ganache - blockchain local
 
+```
 
-Servicios usados:
+
+`## Servicios usados`
 hardhat-node: nodo Ganache local en el puerto 8545.
 contract-tools: contenedor con Hardhat para compilar y desplegar contratos.
 postgres: base de datos PostgreSQL.
